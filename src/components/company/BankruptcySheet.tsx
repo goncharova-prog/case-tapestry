@@ -103,4 +103,26 @@ export function BankruptcySheet({ open, onOpenChange, data, companyName }: Props
               <BankruptcyTimeline events={data.events} />
             </section>
           </div>
-        
+        </ScrollArea>
+      </SheetContent>
+    </Sheet>
+  );
+}
+
+function Field({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-lg border border-border bg-card p-3">
+      <div className="text-xs text-muted-foreground">{label}</div>
+      <div className="mt-1 text-sm font-medium text-foreground">{value}</div>
+    </div>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-lg border border-border bg-muted/40 p-3">
+      <div className="text-[11px] uppercase tracking-wide text-muted-foreground">{label}</div>
+      <div className="mt-1 text-sm font-semibold text-foreground">{value}</div>
+    </div>
+  );
+}
