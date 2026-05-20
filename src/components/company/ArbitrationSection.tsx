@@ -246,7 +246,6 @@ export function ArbitrationSection({ cases }: Props) {
       </section>
     </Collapsible>
   );
-  );
 }
 
 function StatRow({
