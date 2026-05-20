@@ -18,6 +18,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { Company } from "@/lib/bankruptcy-mock";
+import { mockArbitration } from "@/lib/arbitration-mock";
+import { ArbitrationSection } from "./ArbitrationSection";
 import { BankruptcySheet } from "./BankruptcySheet";
 import { BankruptcySummary } from "./BankruptcySummary";
 
