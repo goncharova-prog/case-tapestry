@@ -62,11 +62,13 @@ export function BankruptcySummary({ data, open, onOpenChange }: Props) {
         <Button
           variant="outline"
           size="sm"
-          onClick={onOpenTimeline}
-          aria-label="Открыть подробную хронологию банкротства"
+          onClick={() => onOpenChange(!open)}
+          aria-expanded={open}
         >
-          Открыть хронологию
-          <ChevronRight className="ml-1 h-4 w-4" />
+          {open ? "Скрыть хронологию" : "Открыть хронологию"}
+          <ChevronDown
+            className={`ml-1 h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
+          />
         </Button>
       </div>
     </div>
