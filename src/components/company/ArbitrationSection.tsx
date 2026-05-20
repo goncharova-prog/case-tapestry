@@ -41,10 +41,10 @@ export function ArbitrationSection({ cases }: Props) {
     () => cases.reduce((m, c) => Math.max(m, c.year), 0),
     [cases],
   );
-  const [range, setRange] = useState<"3" | "5" | "all">("3");
+  const [range, setRange] = useState<"1" | "2" | "3" | "4" | "5">("3");
+  const [open, setOpen] = useState(true);
 
   const filtered = useMemo(() => {
-    if (range === "all") return cases;
     const span = Number(range);
     return cases.filter((c) => c.year > maxYear - span);
   }, [cases, range, maxYear]);
