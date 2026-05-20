@@ -108,7 +108,16 @@ export function CompanyCard({ company }: Props) {
 
       <Separator className="my-5" />
 
-      <BankruptcySummary data={company.bankruptcy} onOpenTimeline={() => setOpen(true)} />
+      <BankruptcySummary
+        data={company.bankruptcy}
+        open={open}
+        onOpenChange={setOpen}
+      />
+      {company.bankruptcy && open ? (
+        <div className="mt-3">
+          <BankruptcyDetails data={company.bankruptcy} />
+        </div>
+      ) : null}
 
       <Separator className="my-5" />
 
@@ -134,14 +143,6 @@ export function CompanyCard({ company }: Props) {
         </Button>
       </section>
 
-      {company.bankruptcy ? (
-        <BankruptcySheet
-          open={open}
-          onOpenChange={setOpen}
-          data={company.bankruptcy}
-          companyName={company.shortName}
-        />
-      ) : null}
     </Card>
   );
 }
