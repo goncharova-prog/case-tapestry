@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
-import { Scale, TrendingDown, TrendingUp, Users } from "lucide-react";
+import { ChevronDown, Scale, TrendingDown, TrendingUp, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Badge } from "@/components/ui/badge";
 import {
   Select,
