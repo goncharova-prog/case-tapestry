@@ -18,6 +18,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { Company } from "@/lib/bankruptcy-mock";
+import { mockArbitration } from "@/lib/arbitration-mock";
+import { ArbitrationSection } from "./ArbitrationSection";
 import { BankruptcySheet } from "./BankruptcySheet";
 import { BankruptcySummary } from "./BankruptcySummary";
 
@@ -109,6 +111,11 @@ export function CompanyCard({ company }: Props) {
       <BankruptcySummary data={company.bankruptcy} onOpenTimeline={() => setOpen(true)} />
 
       <Separator className="my-5" />
+
+      <ArbitrationSection cases={mockArbitration} />
+
+      <Separator className="my-5" />
+
 
       <section className="space-y-3">
         <h3 className="flex items-center gap-2 text-sm font-medium text-foreground">
