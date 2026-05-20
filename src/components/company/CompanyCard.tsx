@@ -20,7 +20,7 @@ import { Separator } from "@/components/ui/separator";
 import type { Company } from "@/lib/bankruptcy-mock";
 import { mockArbitration } from "@/lib/arbitration-mock";
 import { ArbitrationSection } from "./ArbitrationSection";
-import { BankruptcySheet } from "./BankruptcySheet";
+import { BankruptcyDetails } from "./BankruptcyDetails";
 import { BankruptcySummary } from "./BankruptcySummary";
 
 interface Props {
@@ -108,7 +108,16 @@ export function CompanyCard({ company }: Props) {
 
       <Separator className="my-5" />
 
-      <BankruptcySummary data={company.bankruptcy} onOpenTimeline={() => setOpen(true)} />
+      <BankruptcySummary
+        data={company.bankruptcy}
+        open={open}
+        onOpenChange={setOpen}
+      />
+      {company.bankruptcy && open ? (
+        <div className="mt-3">
+          <BankruptcyDetails data={company.bankruptcy} />
+        </div>
+      ) : null}
 
       <Separator className="my-5" />
 
@@ -134,14 +143,6 @@ export function CompanyCard({ company }: Props) {
         </Button>
       </section>
 
-      {company.bankruptcy ? (
-        <BankruptcySheet
-          open={open}
-          onOpenChange={setOpen}
-          data={company.bankruptcy}
-          companyName={company.shortName}
-        />
-      ) : null}
     </Card>
   );
 }

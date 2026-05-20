@@ -1,4 +1,4 @@
-import { AlertTriangle, ChevronRight, ShieldCheck, UserCheck } from "lucide-react";
+import { AlertTriangle, ChevronDown, ShieldCheck, UserCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { STAGE_LABELS, type BankruptcyCase } from "@/lib/bankruptcy-mock";
@@ -11,10 +11,11 @@ const dateFmt = new Intl.DateTimeFormat("ru-RU", {
 
 interface Props {
   data?: BankruptcyCase;
-  onOpenTimeline: () => void;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
-export function BankruptcySummary({ data, onOpenTimeline }: Props) {
+export function BankruptcySummary({ data, open, onOpenChange }: Props) {
   if (!data || data.status === "none") {
     return (
       <div className="flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-4 py-3 text-sm">
@@ -61,11 +62,13 @@ export function BankruptcySummary({ data, onOpenTimeline }: Props) {
         <Button
           variant="outline"
           size="sm"
-          onClick={onOpenTimeline}
-          aria-label="Открыть подробную хронологию банкротства"
+          onClick={() => onOpenChange(!open)}
+          aria-expanded={open}
         >
-          Открыть хронологию
-          <ChevronRight className="ml-1 h-4 w-4" />
+          {open ? "Скрыть хронологию" : "Открыть хронологию"}
+          <ChevronDown
+            className={`ml-1 h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
+          />
         </Button>
       </div>
     </div>
