@@ -112,6 +112,11 @@ export function CompanyCard({ company }: Props) {
 
       <Separator className="my-5" />
 
+      <ArbitrationSection cases={mockArbitration} />
+
+      <Separator className="my-5" />
+
+
       <section className="space-y-3">
         <h3 className="flex items-center gap-2 text-sm font-medium text-foreground">
           <TrendingUp className="h-4 w-4" />
