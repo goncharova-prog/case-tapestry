@@ -1,4 +1,4 @@
-import { AlertTriangle, ChevronRight, ShieldCheck, UserCheck } from "lucide-react";
+import { AlertTriangle, ChevronDown, ShieldCheck, UserCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { STAGE_LABELS, type BankruptcyCase } from "@/lib/bankruptcy-mock";
@@ -11,7 +11,8 @@ const dateFmt = new Intl.DateTimeFormat("ru-RU", {
 
 interface Props {
   data?: BankruptcyCase;
-  onOpenTimeline: () => void;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 export function BankruptcySummary({ data, onOpenTimeline }: Props) {
