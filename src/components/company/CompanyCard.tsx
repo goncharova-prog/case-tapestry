@@ -20,7 +20,7 @@ import { Separator } from "@/components/ui/separator";
 import type { Company } from "@/lib/bankruptcy-mock";
 import { mockArbitration } from "@/lib/arbitration-mock";
 import { ArbitrationSection } from "./ArbitrationSection";
-import { BankruptcySheet } from "./BankruptcySheet";
+import { BankruptcyDetails } from "./BankruptcyDetails";
 import { BankruptcySummary } from "./BankruptcySummary";
 
 interface Props {
